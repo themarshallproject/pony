@@ -3,11 +3,17 @@ test:
     - RAILS_ENV=test bundle exec rspec -r rspec_junit_formatter --format RspecJunitFormatter -o $CIRCLE_TEST_REPORTS/rspec/junit.xml
 
 deployment:
+
   production:
-    branch: master
-    heroku:
-      appname: pony-demo
+      branch: master
+      commands:
+        - "[[ ! -s \"$(git rev-parse --git-dir)/shallow\" ]] || git fetch --unshallow"
+        - git push git@heroku.com:pony-demo.git $CIRCLE_SHA1:refs/heads/master
+        - heroku run bash postdeploy.sh --app pony-demo:
+
   staging:
-    branch: develop
-    heroku:
-      appname: pony-demo-develop
+      branch: develop
+      commands:
+        - "[[ ! -s \"$(git rev-parse --git-dir)/shallow\" ]] || git fetch --unshallow"
+        - git push git@heroku.com:pony-demo-develop.git $CIRCLE_SHA1:refs/heads/develop
+        - heroku run bash postdeploy.sh --app pony-demo-develop
