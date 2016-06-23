@@ -28,7 +28,7 @@ class EmailsController < ApplicationController
   # GET /emails
   # GET /emails.json
   def index
-    @emails = Email.all
+    @emails = Email.order('updated_at DESC').all
   end
 
   # GET /emails/1
