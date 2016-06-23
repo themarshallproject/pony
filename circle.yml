@@ -3,7 +3,11 @@ test:
     - RAILS_ENV=test bundle exec rspec -r rspec_junit_formatter --format RspecJunitFormatter -o $CIRCLE_TEST_REPORTS/rspec/junit.xml
 
 deployment:
-  staging:
+  production:
     branch: master
     heroku:
-      appname: tmp-pony
+      appname: pony-demo
+  staging:
+    branch: develop
+    heroku:
+      appname: pony-demo-develop
