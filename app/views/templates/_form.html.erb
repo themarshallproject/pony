@@ -1,0 +1,58 @@
+<%= form_for(@template) do |f| %>
+  <% if @template.errors.any? %>
+    <div id="error_explanation">
+      <% @template.errors.full_messages.each do |message| %>
+        <h2><%= message %></h2>
+      <% end %>
+    </div>
+  <% end %>
+
+
+  <div class="pony-section pony-spacer-lg">
+  <div class="container">
+    <div class="row pony-spacer-md">
+      <div class="col-md-12">
+        <h4>Details</h4>
+      </div>
+    </div>
+
+    <form class="form-horizontal">
+      <div class="row pony-spacer-sm">
+        <div class="form-group form-group-lg">
+          <label class="col-sm-1">Title</label>
+          <div class="col-sm-11">
+            <%= f.text_field :title, class: 'form-control' %>
+          </div>
+        </div>
+      </div>
+      <div class="row pony-spacer-sm">
+        <div class="form-group form-group-lg">
+          <label class="col-sm-1">Header</label>
+          <div class="col-sm-11">
+            <%= f.text_area :header, class: 'form-control', label: false, rows: "10" %>
+          </div>
+        </div>
+      </div>
+      <div class="row pony-spacer-sm">
+        <div class="form-group form-group-lg">
+          <label class="col-sm-1">Footer</label>
+          <div class="col-sm-11">
+           <%= f.text_area :footer, class: 'form-control', label: false, rows: "10" %>
+          </div>
+        </div>
+      </div>
+      <div class="row pony-spacer-sm">
+        <div class="form-group form-group-lg">
+          <div class="col-md-9">
+            <!-- negative space -->
+          </div>
+          <div class="col-md-3">
+            <%= f.button :submit , class: "btn btn-default btn-lg btn-block" %>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div><!-- /.container -->
+</div>
+
+<% end %>

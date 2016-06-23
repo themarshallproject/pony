@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Pony</title>
+<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => false %>
+<%= javascript_include_tag 'application', 'data-turbolinks-track' => false %>
+<%= csrf_meta_tags %>
+</head>
+<body>
+
+<nav class="navbar navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">
+        <b>Pony</b></a>
+    </div>
+    <div id="navbar" class="collapse navbar-collapse pull-right">
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to 'Create a New Email', new_email_path %></li>
+        <li><%= link_to "Emails", emails_path %></li>
+        <li><%= link_to "Templates", templates_path %></li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</nav>
+
+<%= yield %>
+
+</body>
+</html>
