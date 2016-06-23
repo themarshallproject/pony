@@ -1,0 +1,22 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: pony_development
+  username: <%= `whoami` %>
+  host: localhost
+
+test:
+  <<: *default
+  database: pony_test
+  username: <%= `whoami` %>
+  host: localhost
+
+production:
+  <<: *default
+  database: pony_production
+  username: pony
+  password: <%= ENV['PONY_DATABASE_PASSWORD'] %>

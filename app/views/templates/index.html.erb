@@ -1,0 +1,44 @@
+
+<div class="pony-section pony-topper">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h1>Templates</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+      <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi in rutrum sem. Cras molestie, lectus a lobortis interdum, diam mauris ultricies felis.</p>
+      </div>
+      <div class="col-md-3">
+      </div>
+      <div class="col-md-3">
+        <%= link_to 'Create New Template', new_template_path, class: 'btn btn-default btn-lg btn-block' %>
+      </div>
+    </div>
+  </div><!-- /.container -->
+</div>
+
+<div class="klax-section klax-spacer-lg">
+  <div class="container">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Created</th>
+          <th>Title</th>
+          <th colspan="14"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @templates.each do |template| %>
+          <tr>
+            <td><%= template.created_at.strftime("%m/%d/%Y at %I:%M%p") %></td>
+            <td><%= template.title %></td>
+            <td><%= link_to 'Edit', edit_template_path(template), class: 'btn btn-default btn-block' %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

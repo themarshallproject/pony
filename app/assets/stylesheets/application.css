@@ -1,0 +1,178 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+body {
+  color: #ff0b3a;
+  padding-top: 50px;
+}
+
+a {
+  color: #ff0b3a;
+  border-bottom: 2px solid #ff0b3a;
+}
+
+a:hover, a:focus {
+  color: #ff0b3a;
+  text-decoration: none;
+  border-bottom: 2px solid #ff0b3a;
+}
+
+.navbar a {
+  border-bottom: 0;
+}
+
+.dropdown a:hover {
+  border-bottom: 0 !important;
+}
+
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus, .nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
+  background-color:  rgba(255,11,58, 0.1);
+}
+
+.nav > li > a:hover {
+  background-color: transparent;
+}
+
+.navbar-toggle {
+  background-color: #ff0b3a !important;
+}
+
+.navbar-toggle .icon-bar {
+  background-color: white !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  border-top: 0.2em solid #ff0b3a;
+  padding-top: 10px;
+}
+
+h1 {
+  margin-top: 0;
+  font-size: 5.063em;
+}
+
+h2 {font-size: 3.375em;}
+
+h3 {font-size: 2.25em;}
+
+h4 {font-size: 1.5em;}
+
+.table > thead > tr > th {
+  border-bottom: 2px solid #ff0b3a;
+}
+
+.table > thead > tr > th, .table > thead > tr > td, .table > tbody > tr > th, .table > tbody > tr > td, .table > tfoot > tr > th, .table > tfoot > tr > td {
+  border-top: 1px solid #ff0b3a;
+  vertical-align: center;
+  // padding: 8px 0;
+  padding-left: 0;
+  word-wrap: break-word !important;
+  white-space: normal !important;
+}
+
+table tbody tr td:last-child, table thead tr td:last-child  {
+  padding-right: 0 !important;
+}
+
+.form-control {
+  border-radius: 0 !important;
+  border: 1px solid #ff0b3a;
+  box-shadow: none;
+  color: #ff0b3a;
+}
+
+.btn {
+  border-radius: 0 !important;
+  border: 1px solid #ff0b3a;
+  color: #ff0b3a;
+  border-color: #ff0b3a !important;
+}
+
+.btn:hover {
+  color: #fff !important;
+  background-color: #ff0b3a;
+  box-shadow: none;
+}
+
+
+*:focus {
+  border-color: #ff0b3a !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.dropdown a {
+  border: none;
+  color: #ff0b3a !important;
+}
+
+.nav .dropdown .dropdown-menu {
+  border-radius: 0 !important;
+  border-color: rgba(255,11,58, 0.5);
+}
+
+.dropdown-menu {
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+}
+
+.dropdown-menu .divider {
+  background-color: rgba(255,11,58, 0.5);
+}
+
+.nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
+  border-color: rgba(255,11,58, 0.1) !important;
+}
+
+.separator {
+  border-color: rgba(255,11,58, 0.5);
+}
+
+.jumbotron {
+  border: 1px solid #ff0b3a;
+  border-radius: 0 !important;
+  background-color: transparent;
+}
+
+code {
+  color: #ff0b3a;
+  background-color: rgba(255,11,58, 0.1);
+  border-radius: 0;
+}
+
+small {
+  color: #ff0b3a !important;
+}
+
+.pony-topper {
+  padding: 4vh 0;
+}
+
+.pony-spacer-lg {
+  padding-bottom: 4vh;
+}
+
+.pony-spacer-md {
+  padding-bottom: 3vh;
+}
+
+.pony-spacer-sm {
+  padding-bottom: 2vh;
+}
+
+.pony-no-border {
+  border: 0;
+}

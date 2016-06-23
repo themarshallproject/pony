@@ -1,0 +1,128 @@
+
+
+<%= form_for(@email) do |f| %>
+
+  <% if @email.errors.any? %>
+    <div class="container pony-spacer-lg">
+      <div id="error_explanation">
+        <% @email.errors.full_messages.each do |message| %>
+          <h2><%= message %></h2>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+
+<div class="pony-section pony-spacer-lg">
+  <div class="container">
+    <div class="row pony-spacer-md">
+      <div class="col-md-12">
+        <h4>Details</h4>
+      </div>
+    </div>
+
+    <form class="form-horizontal">
+      <div class="row pony-spacer-sm">
+        <div class="form-group form-group-lg">
+          <label class="col-sm-1">Template</label>
+          <div class="col-sm-11">
+            <%= f.collection_select(:template_id, AvailableTemplate.all, :id, :title, prompt: true) %>
+          </div>
+        </div>
+      </div>
+      <div class="row pony-spacer-sm">
+        <div class="form-group form-group-lg">
+          <label class="col-sm-1">Title</label>
+          <div class="col-sm-11">
+             <%= f.text_field :title, class: 'form-control', label: false %>
+          </div>
+        </div>
+      </div>
+      <div class="row pony-spacer-sm">
+        <div class="form-group form-group-lg">
+          <label class="col-sm-1">Content</label>
+          <div class="col-sm-11">
+            <%= f.text_area :content, class: 'form-control', label: false, rows: "10" %>
+          </div>
+        </div>
+      </div>
+
+      <% if @email.persisted? %>
+        <div class="row pony-spacer-sm">
+          <div class="form-group form-group-lg">
+            <label class="col-sm-1">Link</label>
+            <div class="col-sm-11">
+              <code><%= token_export_url(@email.token) %></code>
+            </div>
+          </div>
+        </div>
+      <% end %>
+
+      <div class="row pony-spacer-sm">
+        <div class="form-group form-group-lg">
+          <div class="col-md-9">
+            <!-- negative space -->
+          </div>
+          <div class="col-md-3">
+            <%= f.button :submit, class: "btn btn-default btn-lg btn-block" %>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div><!-- /.container -->
+</div>
+<% if @email.persisted? %>
+<div class="pony-section pony-spacer-lg">
+  <div class="container">
+    <div class="row pony-spacer-md">
+      <div class="col-md-12">
+        <h4>Preview</h4>
+      </div>
+    </div>
+    <div class="row pony-spacer-md">
+      <div class="col-md-12">
+        <iframe frameborder="0" id="live-preview" src="about:blank" style="width: 100%; height:50vh; border: 3px solid #ff0b3a;"></iframe>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>
+<% end %>
+
+
+
+
+<script>
+$(document).ready(function() {
+
+  var previewURL = "<%= live_preview_emails_path %>";
+  var templateID = "<%= @email.template_id %>";
+
+  var setIframe = function(html) {
+    var iframe = document.getElementById('live-preview');
+    var body = iframe.contentDocument.body;
+    body.style.margin = 0;
+    body.innerHTML = html;
+  }
+
+  var getPreviewHTML = function(content) {
+    var config = {
+      "template_id": templateID,
+      "content": content
+    };
+    $.post(previewURL, config, function(data) {
+      var html = data.html;
+      setIframe(html);
+    });
+  }
+
+  var update = function() {
+    var content = document.getElementById('email_content').value;
+    getPreviewHTML(content);
+  }
+
+  update();
+
+  window.addEventListener('keyup', update);
+});
+
+</script>

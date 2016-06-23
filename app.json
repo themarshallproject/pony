@@ -1,0 +1,31 @@
+{
+  "name": "Pony",
+  "description": "Build HTML emails with user-defined templates",
+  "keywords": [],
+  "website": "https://github.com/ivarvong/pony",
+  "repository": "https://github.com/ivarvong/pony",
+  "success_url": "/",
+  "scripts": {
+    "postdeploy": "bash ./postdeploy.sh"
+  },
+  "env": {
+    "SECRET_KEY_BASE": {
+      "description": "A secret key for verifying the integrity of signed cookies.",
+      "generator": "secret"
+    },
+    "TOKENS": {
+      "description": "A comma-seperated list of tokens used for 'magic link' login",
+      "generator": "secret"
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "free"
+    }
+  },
+  "image": "heroku/ruby",
+  "addons": [
+    "heroku-postgresql:hobby-dev",
+  ]
+}
