@@ -4,7 +4,7 @@ Pony is a web app for building HTML emails from user-defined templates. It takes
 
 [![CircleCI](https://circleci.com/gh/themarshallproject/pony.svg?style=svg)](https://circleci.com/gh/themarshallproject/pony)
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/ivarvong/pony/tree/master)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/themarshallproject/pony/tree/master)
 
 [Live Demo](https://pony-demo.herokuapp.com/new-session/demo)
 
