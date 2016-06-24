@@ -26,6 +26,6 @@
   },
   "image": "heroku/ruby",
   "addons": [
-    "heroku-postgresql:hobby-dev",
+    "heroku-postgresql:hobby-dev"
   ]
 }
