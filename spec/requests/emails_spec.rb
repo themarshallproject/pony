@@ -7,7 +7,7 @@ RSpec.describe "Emails", type: :request do
   end
 
   describe "GET /emails" do
-    it "works! (now write some real specs)" do
+    it "works" do
       get emails_path
       expect(response).to have_http_status(200)
     end
@@ -18,8 +18,8 @@ RSpec.describe "Emails", type: :request do
     content = "content_#{SecureRandom.hex}"
     footer  = "footer_#{SecureRandom.hex}"
 
-    template = Template.create(header: header, footer: footer)
-    email = Email.create(template: template, content: content)
+    template = Template.create!(header: header, footer: footer) # TODO these should be factories
+    email = Email.create!(template: template, content: content)
 
     get token_export_path(token: email.token)
 

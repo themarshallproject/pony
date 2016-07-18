@@ -1,0 +1,15 @@
+<% cache ['v1', email] do %>
+  <tr>
+    <td><%= email.created_at.strftime("%m/%d/%Y at %I:%M%p") %></td>
+    <td><%= email.title %></td>
+    <td><%= email.content&.first(200) %></td>
+    <td><%= link_to 'Preview', render_preview_email_path(email), class: 'btn btn-default btn-block' %></td>
+    <td><%= link_to 'Edit', edit_email_path(email), class: 'btn btn-default btn-block' %></td>
+
+    <% if email.is_archived? %>
+      <td><%= link_to 'Unarchive', unarchive_email_path(email), method: :post, class: 'btn btn-default btn-block' %></td>
+    <% else %>
+      <td><%= link_to 'Archive', archive_email_path(email), method: :post, class: 'btn btn-default btn-block' %></td>
+    <% end %>
+  </tr>
+<% end %>

@@ -28,7 +28,6 @@
   </div><!-- /.container -->
 </div>
 
-
 <div class="pony-section pony-spacer-lg">
   <div class="container">
     <table class="table">
@@ -37,21 +36,20 @@
           <th>Created</th>
           <th>Title</th>
           <th>Content</th>
-          <th colspan="3"></th>
+          <th colspan="5"></th>
         </tr>
       </thead>
 
       <tbody>
-        <% @emails.each do |email| %>
-          <tr>
-            <td><%= email.created_at.strftime("%m/%d/%Y at %I:%M%p") %></td>
-            <td><%= email.title %></td>
-            <td><%= email.content&.first(200) %></td>
-            <td><%= link_to 'Preview', render_preview_email_path(email), class: 'btn btn-default btn-block' %></td>
-            <td><%= link_to 'Edit', edit_email_path(email), class: 'btn btn-default btn-block' %></td>
-          </tr>
-        <% end %>
+        <%= render @emails %>
       </tbody>
     </table>
+  </div>
+</div>
+
+
+<div class="pony-section pony-spacer-lg">
+  <div class="container">
+    <%= link_to "View Archived Emails", archived_emails_path %>
   </div>
 </div>

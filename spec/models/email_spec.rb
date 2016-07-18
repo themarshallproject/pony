@@ -24,4 +24,20 @@ RSpec.describe Email, type: :model do
     email = Email.create(template: Template.new)
     expect(email.token.length).to eq 40
   end
+
+  it "is not archived" do
+    email = Email.create(template: Template.new)
+    expect(email.is_archived?).to be false
+  end
+
+  it "can be archived" do
+    template = Template.create(title: SecureRandom.hex)
+    email = Email.create(template: template)
+    expect(email.is_archived?).to be false
+
+    email.is_archived = true
+
+    # expect(email.is_archived).to be true
+    expect(email.is_archived?).to be true
+  end
 end

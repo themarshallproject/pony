@@ -1,5 +1,5 @@
 class EmailsController < ApplicationController
-  before_action :set_email, only: [:show, :edit, :update, :destroy, :render_html, :render_preview]
+  before_action :set_email, only: [:show, :edit, :update, :destroy, :render_html, :render_preview, :archive, :unarchive]
 
   before_action {
     authorize!
@@ -28,7 +28,11 @@ class EmailsController < ApplicationController
   # GET /emails
   # GET /emails.json
   def index
-    @emails = Email.order('updated_at DESC').all
+    @emails = Email.not_archived.order('updated_at DESC').all
+  end
+
+  def archived
+    @emails = Email.archived.order('updated_at DESC').all
   end
 
   # GET /emails/1
@@ -43,6 +47,20 @@ class EmailsController < ApplicationController
 
   # GET /emails/1/edit
   def edit
+  end
+
+  def archive
+    @email.is_archived = true
+    @email.save!
+
+    redirect_to emails_path
+  end
+
+  def unarchive
+    @email.is_archived = false
+    @email.save!
+
+    redirect_to emails_path
   end
 
   # POST /emails

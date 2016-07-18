@@ -7,6 +7,10 @@ Rails.application.routes.draw do
   resources :emails do
     get 'render_html', on: :member
     get 'render_preview', on: :member
+    post 'archive', on: :member
+    post 'unarchive', on: :member
+
+    get 'archived', on: :collection
     post 'live_preview', on: :collection
   end
 

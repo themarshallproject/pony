@@ -19,6 +19,7 @@ gem 'rails_12factor'
 group :development, :test do
   gem 'byebug'
   gem 'rspec-rails'
+  gem 'factory_girl_rails'
   gem 'rspec_junit_formatter', '0.2.2'
 end
 

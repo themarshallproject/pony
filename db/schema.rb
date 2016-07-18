@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160615142855) do
+ActiveRecord::Schema.define(version: 20160712214706) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,8 +23,10 @@ ActiveRecord::Schema.define(version: 20160615142855) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.string   "token"
+    t.boolean  "is_archived"
   end
 
+  add_index "emails", ["is_archived"], name: "index_emails_on_is_archived", using: :btree
   add_index "emails", ["template_id"], name: "index_emails_on_template_id", using: :btree
   add_index "emails", ["token"], name: "index_emails_on_token", using: :btree
 

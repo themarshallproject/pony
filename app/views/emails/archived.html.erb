@@ -1,0 +1,49 @@
+
+<div class="pony-topper">
+  <div class="container">
+    <div class="jumbotron">
+      <h1 class="pony-no-border" style="padding-top: 0;">Welcome to Pony</h1>
+      <p>Create emails that you can export to MailChimp.</p>
+    </div>
+  </div>
+</div>
+
+<div class="pony-section pony-topper">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h1>Archived Emails</h1>
+      </div>
+    </div>
+  </div><!-- /.container -->
+</div>
+
+
+<div class="pony-section pony-spacer-lg">
+  <div class="container">
+    <% if @emails.count > 0 %>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Created</th>
+            <th>Title</th>
+            <th>Content</th>
+            <th colspan="5"></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <%= render @emails %>
+        </tbody>
+      </table>
+    <% else %>
+      No archived emails yet.
+    <% end %>
+  </div>
+</div>
+
+<div class="pony-section pony-spacer-lg">
+  <div class="container">
+    <%= link_to "View Unarchived Emails", emails_path %>
+  </div>
+</div>
