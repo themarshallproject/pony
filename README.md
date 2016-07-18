@@ -30,9 +30,9 @@ We’ve included a sample starter template to get you started.
 
 Pony is a Ruby on Rails app. Developing on OS X requires Ruby 2.3 (We use `rbenv` from homebrew) and Postgres (we use Postgres.app).
 
-Pony is designed to be fairly simple to deploy, so it's opiniated and limited. Its authentication strategy relies on "magic links" – not unlike a password reset link you might be emailed.
+Pony is designed to be fairly simple to deploy, so it's opinionated and limited. Its authentication strategy relies on "magic links" – not unlike a password reset link you might be emailed.
 
-To develop locally, you'll have to set at least one of these. In your `.env` file (create this if it doesn't exist), add a line that look like:
+To develop locally, you'll have to set at least one of these tokens. In your `.env` file (create this if it doesn't exist), add a line that looks like:
 
 `TOKENS=test`
 
