@@ -24,7 +24,7 @@ We’ve included a sample starter template to get you started.
 
 - Then you can create a new email, select the template you’ve created and paste in the body of the email. Click save, and your live preview will appear. You can then style the email which will adopt the style of any Markdownable elements (such has `<h1>` and `<p>`) you have declared in the `<style>` tag of the template.
 
-- Once you’re ready to go, copy the export URL to the appropriate field ([Code Your Own Template > Import from URL](http://kb.mailchimp.com/campaigns/ways-to-build/import-html-from-url-to-create-a-campaign)) inside MailChimp. The export URL is publicly visible (although protected by a random hash in the URL) so MailChimp can pull it in.
+- Once you’re ready to go, copy the export URL to the appropriate field ([Code Your Own Template > Import from URL](http://kb.mailchimp.com/campaigns/ways-to-build/import-html-from-url-to-create-a-campaign)) inside MailChimp. The export URL is publicly visible (although protected by a random token in the URL) so MailChimp can pull it in.
 
 # Developing on OS X
 
