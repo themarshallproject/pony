@@ -26,6 +26,14 @@ We’ve included a sample starter template to get you started.
 
 - Once you’re ready to go, copy the export URL to the appropriate field ([Code Your Own Template > Import from URL](http://kb.mailchimp.com/campaigns/ways-to-build/import-html-from-url-to-create-a-campaign)) inside MailChimp. The export URL is publicly visible (although protected by a random token in the URL) so MailChimp can pull it in.
 
+# Deploying to Heroku
+
+Pony relies on magic links to login to its admin interface. When you use the "Deploy to Heroku" button, it will automatically generate a secure token. To find this token, either run `heroku config` for the new app, or go to the Heroku admin interface for you app, then "Settings", then click "Reveal Config Vars." Once you have the token, your login URL will look like:
+
+`https://YOUR-APP.herokuapp.com/new-session/THE-TOKEN`
+
+Suggestions for streamlining this process are welcome.
+
 # Developing on OS X
 
 Pony is a Ruby on Rails app. Developing on OS X requires Ruby 2.3 (We use `rbenv` from homebrew) and Postgres (we use Postgres.app).
