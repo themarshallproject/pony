@@ -10,7 +10,7 @@ gem 'jquery-rails'
 
 gem 'puma'
 
-gem 'roadie', '~> 3.1.1'
+gem 'roadie', '~> 3.2'
 gem 'kramdown'
 
 gem 'rack-cache', require: 'rack/cache'
